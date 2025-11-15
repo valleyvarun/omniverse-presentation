@@ -1,0 +1,373 @@
+/* CSS Variables from style1.css */
+:root {
+  --bg: #0b0b0b;
+  --panel: #151515;
+  --text: #eaeaea;
+  --muted: #9aa0a6;
+  --accent: #3a86ff;
+  --border: #262626;
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll globally */
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* Account for fixed header height */
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Fixed Header - adapted from style1.css */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: linear-gradient(180deg, rgba(15,15,15,0.98), rgba(15,15,15,0.94));
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.author-info {
+  text-align: right;
+  color: var(--muted);
+}
+
+.author-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--muted);
+}
+
+.author-details span {
+  margin-bottom: 1px;
+}
+
+
+/* Main content area with top padding to account for fixed header */
+main {
+  position: absolute;
+  top: 60px; /* Start right below the header */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100vh - 60px);
+  padding: 0;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory; /* Enable scroll snapping */
+}
+
+/* Container for content */
+.container {
+  max-width: none; /* Remove max-width constraint */
+  margin: 0;
+  padding: 0;
+}
+
+/* Sections for presentation slides - 16:9 aspect ratio */
+section {
+  width: 100%; /* Use 100% instead of 100vw to avoid horizontal scroll */
+  height: calc(100vh - 60px); /* Height of the available space below header */
+  margin: 0;
+  padding: 40px; /* Regular padding, no need to account for header */
+  background: var(--panel); /* Restored normal dark background */
+  border-bottom: 2px solid var(--border); /* Add border between slides */
+  border-radius: 0; /* Remove border radius for full-screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Changed back to center for equal spacing */
+  align-items: flex-start;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent any content overflow */
+  scroll-snap-align: start; /* Snap to start of each section */
+  position: relative;
+}
+
+/* Add a subtle shadow to enhance slide separation */
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.3));
+  pointer-events: none;
+}
+
+/* Remove border and shadow from the last slide */
+section:last-child {
+  border-bottom: none;
+}
+
+section:last-child::after {
+  display: none;
+}
+
+/* Ensure 16:9 content area within each section */
+.section-content {
+  width: 100%;
+  max-width: calc((100vh - 60px - 80px) * 16 / 9); /* 16:9 based on available height minus header and padding */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; /* Use full section height */
+}
+
+/* Slide layout - side by side text and image */
+.slide-layout {
+  display: flex;
+  gap: 40px;
+  height: auto; /* Changed from 100% to auto to let content determine height */
+  align-items: center; /* Changed back to center for vertical alignment of text and image */
+  padding-top: 0; /* Remove top padding to let section centering handle spacing */
+}
+
+/* Normal layout: Text left, Image right */
+.slide-layout-normal .slide-layout {
+  flex-direction: row;
+}
+
+/* Reverse layout: Image left, Text right */
+.slide-layout-reverse .slide-layout {
+  flex-direction: row-reverse;
+}
+
+/* Adjust text padding for reverse layout */
+.slide-layout-reverse .slide-text {
+  padding-right: 0;
+  padding-left: 20px;
+}
+
+.slide-text {
+  flex: 0.618; /* Changed to 0.618 ratio relative to image */
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Changed back to center for vertical centering */
+  padding-top: 0; /* Remove padding since slide-layout now has top padding */
+  background: var(--panel); /* Restored normal background - same as slide */
+}
+
+.slide-image {
+  flex: 1; /* Image area is the base unit (1000 parts) */
+  height: 100%;
+  min-height: 500px; /* Ensure minimum height for better image quality */
+  display: flex;
+  align-items: center; /* Changed back to center to align with text */
+  justify-content: center;
+  /* Removed padding-top to align exactly with text */
+}
+
+.slide-image img {
+  width: 600px; /* Set specific size to test - should look crisp at this size */
+  height: 600px; /* Square image */
+  max-width: 100%; /* Still responsive */
+  max-height: 100%; /* Prevent overflow */
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.image-placeholder {
+  width: 100%; /* Increased from 95% to match image sizing */
+  height: 100%; /* Increased from 95% to match image sizing */
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 16px;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1; /* Enforce square aspect ratio */
+}
+
+.slide-heading h2 {
+  margin-top: 0;
+  font-size: calc(1.6rem - 1px); /* Reduced by 1px from 1.6rem */
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px; /* Reduced from 10px */
+  margin-bottom: 16px; /* Reduced from 20px */
+}
+
+.slide-heading {
+  margin-bottom: 20px; /* Space between heading and content sections */
+}
+
+.slide-content {
+  flex-grow: 1; /* Allow content area to expand if needed */
+}
+
+.slide-content p {
+  font-size: 1rem; /* Reduced from 1.1rem to prevent overflow */
+  line-height: 1.5; /* Reduced from 1.6 for more compact text */
+  color: var(--muted);
+  margin: 0 0 10px 0; /* Reduced bottom margin from 12px to 10px */
+}
+
+
+
+/* Footer */
+footer {
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 16px;
+  }
+  
+  .header-left {
+    gap: 8px;
+  }
+  
+  .logo {
+    height: 28px;
+  }
+  
+  header h1 {
+    font-size: 16px;
+  }
+  
+  .author-name {
+    font-size: 12px;
+  }
+  
+  .author-details {
+    font-size: 11px;
+  }
+  
+  main {
+    top: 50px; /* Back to original mobile header height */
+    height: calc(100vh - 50px);
+  }
+  
+  section {
+    height: calc(100vh - 50px);
+    padding: 20px;
+  }
+  
+  .section-content {
+    max-width: 100%; /* Allow full width on mobile */
+  }
+  
+  .slide-layout,
+  .slide-layout-normal .slide-layout,
+  .slide-layout-reverse .slide-layout {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+    align-items: flex-start; /* Maintain top alignment on mobile */
+    padding-top: 0; /* Remove padding to let section handle spacing */
+  }
+  
+  .slide-layout-reverse .slide-text {
+    padding-left: 0; /* Reset left padding on mobile */
+    padding-right: 0;
+  }
+  
+  .slide-text {
+    padding-right: 0;
+    padding-top: 0; /* Remove mobile top padding since slide-layout has it */
+  }
+  
+  .slide-text h2 {
+    font-size: calc(1.3rem - 1px); /* Reduced by 1px from 1.3rem for mobile */
+  }
+  
+  .slide-heading {
+    margin-bottom: 15px; /* Reduced spacing for mobile */
+  }
+  
+  .slide-text p {
+    font-size: 0.95rem; /* Reduced from 1rem for mobile to prevent overflow */
+    line-height: 1.4; /* Slightly reduced line height for mobile */
+  }
+  
+  .slide-image {
+    height: 300px; /* Increased from 250px for larger mobile images */
+    width: 300px; /* Increased from 250px to match height */
+    align-self: center; /* Center the square container */
+  }
+  
+  .slide-image img {
+    height: 100%; /* Use full container height */
+    width: auto; /* Maintain square aspect ratio */
+    max-width: 100%;
+  }
+  
+  .image-placeholder {
+    height: 100%;
+    width: 100%; /* Full width of the square container */
+    font-size: 14px;
+    aspect-ratio: 1 / 1; /* Maintain square on mobile */
+  }
+}

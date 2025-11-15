@@ -1,0 +1,8 @@
+I want the Omniverse Launcher back!
+Across architecture, design, engineering, robotics, sciences—and really, just about every industry—I believe the next evolution of work depends on three key advances:
+
+1) A unified digital framework where software can be interconnected and data transfer between them automated.
+2) The integration of multimodal AI agents capable of operating the software applications across diverse data types.
+3) Cloud services that facilitate collaboration among people working together on shared projects across this connected software environment. They should also be used to store, manage, and continuously learn from the vast network of interconnected work data generated through these tools.
+
+I believe the Omniverse launcher is a gateway for software interoperability, stacking AI technologies over software, and community engagement. Reintroducing it with an updated design and new improvements could bridge the current gap between Omniverse developers and end-users.
