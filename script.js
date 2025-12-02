@@ -2,9 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     let currentSlide = 0;
-    let slide1HintStarted = false;
-    let slide1HintClicked = false;
-    let slide1HintCycleTimeout = null;
 
     // Load slide content from text files
     loadSlideContent();
@@ -132,20 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
                     }
                 }
-
-                // Start hint cycle when slide1 (overview) first becomes visible
-                if (entry.target.id === 'overview' && !slide1HintStarted) {
-                    const hintEl = document.getElementById('slide1-hint');
-                    if (hintEl) {
-                        slide1HintStarted = true;
-                        // Initial delay of 5 seconds before first appearance
-                        setTimeout(() => {
-                            if (!slide1HintClicked) {
-                                runSlide1HintCycle(hintEl);
-                            }
-                        }, 3000);
-                    }
-                }
             }
         });
     }, {
@@ -170,45 +153,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Use arrow keys (← →) or < > keys to navigate between slides');
     console.log('Use Home/End keys to jump to first/last slide');
     console.log('Slide content loaded from external text files');
-
-    // Slide 1 image toggle logic
-    const slide1Image = document.getElementById('slide1-image');
-    if (slide1Image) {
-        const primarySrc = slide1Image.getAttribute('src');
-        const altSrc = slide1Image.getAttribute('data-alt-src');
-        slide1Image.style.cursor = 'pointer';
-        slide1Image.addEventListener('click', () => {
-            const currentSrc = slide1Image.getAttribute('src');
-            if (currentSrc === primarySrc) {
-                slide1Image.setAttribute('src', altSrc);
-            } else {
-                slide1Image.setAttribute('src', primarySrc);
-            }
-            // Stop hint cycle on first user click
-            if (!slide1HintClicked) {
-                slide1HintClicked = true;
-                const hintEl = document.getElementById('slide1-hint');
-                if (hintEl) {
-                    hintEl.classList.remove('visible');
-                }
-                if (slide1HintCycleTimeout) {
-                    clearTimeout(slide1HintCycleTimeout);
-                }
-            }
-        });
-    }
-
-    // Hint cycle function: show for 1s, hide for 1.5s, repeat until clicked
-    function runSlide1HintCycle(hintEl) {
-        if (slide1HintClicked) return;
-        // Show hint
-        hintEl.classList.add('visible');
-        setTimeout(() => {
-            hintEl.classList.remove('visible');
-            // Schedule next cycle after 1.5s hidden period
-            slide1HintCycleTimeout = setTimeout(() => {
-                runSlide1HintCycle(hintEl);
-            }, 1500);
-        }, 1000); // Visible for 1 second
-    }
 });
