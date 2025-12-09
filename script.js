@@ -18,6 +18,36 @@ document.addEventListener('DOMContentLoaded', function() {
             const slide1Response = await fetch('txt/slide1.txt');
             const slide1Text = await slide1Response.text();
             parseAndDisplaySlideContent(slide1Text, 'slide1');
+
+            // Load slide 2 content
+            const slide2Response = await fetch('txt/slide2.txt');
+            const slide2Text = await slide2Response.text();
+            parseAndDisplaySlideContent(slide2Text, 'slide2');
+
+            // Load slide 3 content
+            const slide3Response = await fetch('txt/slide3.txt');
+            const slide3Text = await slide3Response.text();
+            parseAndDisplaySlideContent(slide3Text, 'slide3');
+
+            // Load slide 4 content
+            const slide4Response = await fetch('txt/slide4.txt');
+            const slide4Text = await slide4Response.text();
+            parseAndDisplaySlideContent(slide4Text, 'slide4');
+
+            // Load slide 5 content
+            const slide5Response = await fetch('txt/slide5.txt');
+            const slide5Text = await slide5Response.text();
+            parseAndDisplaySlideContent(slide5Text, 'slide5');
+
+            // Load slide 6 content
+            const slide6Response = await fetch('txt/slide6.txt');
+            const slide6Text = await slide6Response.text();
+            parseAndDisplaySlideContent(slide6Text, 'slide6');
+
+            // Load slide 7 content
+            const slide7Response = await fetch('txt/slide7.txt');
+            const slide7Text = await slide7Response.text();
+            parseAndDisplaySlideContent(slide7Text, 'slide7');
         } catch (error) {
             console.error('Error loading slide content:', error);
         }
@@ -27,45 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function parseAndDisplaySlideContent(text, slideId) {
         const lines = text.trim().split('\n').filter(line => line.trim() !== '');
         
-        // Set specific headings for slides
-        if (slideId === 'slide0') {
-            const headingElement = document.getElementById(`${slideId}-heading`);
-            if (headingElement) {
-                headingElement.textContent = "Reimagining the Omniverse Launcher";
-            }
-            
-            // All lines become content paragraphs for slide0
-            const contentElement = document.getElementById(`${slideId}-content`);
-            if (contentElement && lines.length > 0) {
-                contentElement.innerHTML = lines.map(line => `<p>${line}</p>`).join('');
-            }
-        } else if (slideId === 'slide1') {
-            const headingElement = document.getElementById(`${slideId}-heading`);
-            if (headingElement) {
-                headingElement.textContent = "1. Simplifying Software Interoperability";
-            }
-            
-            // All lines become content paragraphs for slide1
-            const contentElement = document.getElementById(`${slideId}-content`);
-            if (contentElement && lines.length > 0) {
-                contentElement.innerHTML = lines.map(line => `<p>${line}</p>`).join('');
-            }
-        } else {
-            // For other slides, use first line as heading
-            if (lines.length > 0) {
-                const heading = lines[0];
-                const headingElement = document.getElementById(`${slideId}-heading`);
-                if (headingElement) {
-                    headingElement.textContent = heading;
-                }
-
-                // Remaining lines are content paragraphs
-                const contentLines = lines.slice(1);
-                const contentElement = document.getElementById(`${slideId}-content`);
-                if (contentElement && contentLines.length > 0) {
-                    contentElement.innerHTML = contentLines.map(line => `<p>${line}</p>`).join('');
-                }
-            }
+        // All lines become content paragraphs
+        const contentElement = document.getElementById(`${slideId}-content`);
+        if (contentElement && lines.length > 0) {
+            contentElement.innerHTML = lines.map(line => `<p>${line}</p>`).join('');
         }
     }
 

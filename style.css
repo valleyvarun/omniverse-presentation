@@ -61,7 +61,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text);
 }
@@ -239,7 +239,7 @@ section:last-child::after {
 
 .slide-heading h2 {
   margin-top: 0;
-  font-size: calc(1.6rem - 1px); /* Reduced by 1px from 1.6rem */
+  font-size: 18px;
   font-weight: 600;
   color: var(--text);
   border-bottom: 2px solid var(--accent);
@@ -285,97 +285,4 @@ footer {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  header {
-    padding: 10px 16px;
-  }
-  
-  .header-left {
-    gap: 8px;
-  }
-  
-  .logo {
-    height: 28px;
-  }
-  
-  header h1 {
-    font-size: 16px;
-  }
-  
-  .author-name {
-    font-size: 12px;
-  }
-  
-  .author-details {
-    font-size: 11px;
-  }
-  
-  main {
-    top: 50px; /* Back to original mobile header height */
-    height: calc(100vh - 50px);
-  }
-  
-  section {
-    height: calc(100vh - 50px);
-    padding: 20px;
-  }
-  
-  .section-content {
-    max-width: 100%; /* Allow full width on mobile */
-  }
-  
-  .slide-layout,
-  .slide-layout-normal .slide-layout,
-  .slide-layout-reverse .slide-layout {
-    flex-direction: column;
-    gap: 20px;
-    height: auto;
-    align-items: flex-start; /* Maintain top alignment on mobile */
-    padding-top: 0; /* Remove padding to let section handle spacing */
-  }
-  
-  .slide-layout-reverse .slide-text {
-    padding-left: 0; /* Reset left padding on mobile */
-    padding-right: 0;
-  }
-  
-  .slide-text {
-    padding-right: 0;
-    padding-top: 0; /* Remove mobile top padding since slide-layout has it */
-  }
-  
-  .slide-text h2 {
-    font-size: calc(1.3rem - 1px); /* Reduced by 1px from 1.3rem for mobile */
-  }
-  
-  .slide-heading {
-    margin-bottom: 15px; /* Reduced spacing for mobile */
-  }
-  
-  .slide-text p {
-    font-size: 0.95rem; /* Reduced from 1rem for mobile to prevent overflow */
-    line-height: 1.4; /* Slightly reduced line height for mobile */
-  }
-  
-  .slide-image {
-    height: 300px; /* Increased from 250px for larger mobile images */
-    width: 300px; /* Increased from 250px to match height */
-    align-self: center; /* Center the square container */
-  }
-  
-  .slide-image img {
-    height: 100%; /* Use full container height */
-    width: auto; /* Maintain square aspect ratio */
-    max-width: 100%;
-  }
-  
-  .image-placeholder {
-    height: 100%;
-    width: 100%; /* Full width of the square container */
-    font-size: 14px;
-    aspect-ratio: 1 / 1; /* Maintain square on mobile */
-  }
 }
