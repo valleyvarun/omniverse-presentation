@@ -239,16 +239,16 @@ section:last-child::after {
 
 .slide-heading h2 {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 2.5vh;
   font-weight: 600;
   color: var(--text);
   border-bottom: 2px solid var(--accent);
-  padding-bottom: 8px; /* Reduced from 10px */
-  margin-bottom: 16px; /* Reduced from 20px */
+  padding-bottom: 1vh;
+  margin-bottom: 2vh;
 }
 
 .slide-heading {
-  margin-bottom: 20px; /* Space between heading and content sections */
+  margin-bottom: 2vh; /* Space between heading and content sections */
 }
 
 .slide-content {
@@ -256,10 +256,10 @@ section:last-child::after {
 }
 
 .slide-content p {
-  font-size: 1rem; /* Reduced from 1.1rem to prevent overflow */
-  line-height: 1.5; /* Reduced from 1.6 for more compact text */
+  font-size: 2vh;
+  line-height: 1.5;
   color: var(--muted);
-  margin: 0 0 10px 0; /* Reduced bottom margin from 12px to 10px */
+  margin: 0 0 1.5vh 0;
 }
 
 .display-image {
