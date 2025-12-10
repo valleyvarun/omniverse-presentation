@@ -1,0 +1,5 @@
+A multimodal AI model can be trained using the millions of 3D and other digital assets stored on cloud servers, learning from real project data instead of artificial training sets. 
+
+A community asset store would allow creators to share the models they build across different software tools, expanding the ecosystem even more. The AI agent could also reuse existing assets—placing them directly into a scene inside any software—rather than generating everything from scratch. 
+
+Simulations further strengthen the AI’s abilities: for example, it can “study” a 3D model by moving a virtual camera around it, learning how images correspond to 3D geometry and improving both its image generation and image-to-3D reconstruction skills. The AI could then train itself by attempting to recreate these shared assets through operating the software directly, continuously improving its creative and technical capabilities.

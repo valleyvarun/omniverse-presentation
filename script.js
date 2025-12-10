@@ -43,11 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const slide6Response = await fetch('txt/slide6.txt');
             const slide6Text = await slide6Response.text();
             parseAndDisplaySlideContent(slide6Text, 'slide6');
-
-            // Load slide 7 content
-            const slide7Response = await fetch('txt/slide7.txt');
-            const slide7Text = await slide7Response.text();
-            parseAndDisplaySlideContent(slide7Text, 'slide7');
         } catch (error) {
             console.error('Error loading slide content:', error);
         }

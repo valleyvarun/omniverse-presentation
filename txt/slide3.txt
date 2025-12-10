@@ -1,0 +1,7 @@
+Across industries, software has accumulated hundreds of tools, settings, and functions—powerful, but often overwhelming. Learning them takes enormous time, leading to thousands of tutorials just to understand basic operations. 
+As a result, people are reluctant to adopt new software because doing so means starting from scratch, so they prefer to remain with familiar tools even if better options exist. 
+Even within the software they already use, most features go underutilized simply because users are unaware they exist or unsure how to use them.
+
+In the Omniverse Launcher, an AI-powered command line can address this problem directly. Instead of memorizing tool names, menus, or settings, users can simply describe what they want to do, and the AI will bring the relevant tool or function to them instantly. 
+Beyond this, the AI agent can actively guide users through the software itself—demonstrating how a particular task can be completed by operating the tools step-by-step. 
+Together, these capabilities reduce complexity, ease onboarding, and make the full power of advanced software accessible to everyone, ultimately resulting in a much simpler and less overwhelming user interface.
