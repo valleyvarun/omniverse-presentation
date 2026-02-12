@@ -1,4 +1,4 @@
-In the designing, creating and operating industries much of the tasks are going to be done by AI agents.
-AI agents would have to be able to "see" and "understand" the entire context of the project which often comprises of several files of varying datatypes and operational in different software. 
-Everyone involved, both people and agents, must be able to clearly communicate what work has been done, what changes or additions were made, and in which specific files, with the ability to walk any team member through these updates. This level of shared awareness cannot be achieved if each AI agent exists only inside its own isolated software. 
-To make this possible, all tools, data, and AI agents must operate within a common unified workspace that brings the entire project together in one connected environment.
+In the near future, much of the digital work we perform will be carried out by AI agents.
+1) AI agents would have to be able to "see" and "understand" the entire context of the project which often comprises of several files of varying datatypes and operational in different software. 
+2) <span style="color: #aaa !important; font-style: italic;">Everyone involved, both people and agents, must be able to clearly communicate what work has been done, what changes or additions were made, and in which specific files, with the ability to walk any team member through these updates. This level of shared awareness cannot be achieved if each AI agent exists only inside its own isolated software.</span> 
+3) To make this possible, all tools, data, and AI agents must operate within a common workspace that brings the entire project together in one connected environment.

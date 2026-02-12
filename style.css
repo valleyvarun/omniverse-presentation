@@ -286,3 +286,6 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
+/* Minimal override: force all text to white */
+* { color: #fff !important; }
